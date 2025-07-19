@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港復康會 - CMS管理系統</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 側邊欄 -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h2>CMS管理系統</h2>
+                <p>香港復康會</p>
+            </div>
+            
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-item active" data-section="dashboard">儀表板</a></li>
+                    <li><a href="#content" class="nav-item" data-section="content">內容管理</a></li>
+                    <li><a href="#pages" class="nav-item" data-section="pages">頁面管理</a></li>
+                    <li><a href="#media" class="nav-item" data-section="media">媒體管理</a></li>
+                    <li><a href="#users" class="nav-item" data-section="users">用戶管理</a></li>
+                    <li><a href="#settings" class="nav-item" data-section="settings">系統設定</a></li>
+                </ul>
+            </nav>
+            
+            <div class="admin-user">
+                <div class="user-info">
+                    <img src="../images/admin-avatar.png" alt="管理員" class="user-avatar">
+                    <div class="user-details">
+                        <span class="user-name">管理員</span>
+                        <span class="user-role">超級管理員</span>
+                    </div>
+                </div>
+                <button class="logout-btn">登出</button>
+            </div>
+        </aside>
+
+        <!-- 主要內容區域 -->
+        <main class="admin-main">
+            <!-- 頂部導航 -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" aria-label="切換側邊欄">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <h1 id="page-title">儀表板</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜尋..." aria-label="搜尋">
+                        <button type="button" aria-label="搜尋按鈕">🔍</button>
+                    </div>
+                    <button class="notifications-btn" aria-label="通知">
+                        <span class="notification-badge">3</span>
+                        🔔
+                    </button>
+                </div>
+            </header>
+
+            <!-- 內容區域 -->
+            <div class="admin-content">
+                <!-- 儀表板 -->
+                <section id="dashboard" class="content-section active">
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">📄</div>
+                            <div class="stat-info">
+                                <h3>總頁面數</h3>
+                                <p class="stat-number">24</p>
+                                <span class="stat-change positive">+2 本月</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📰</div>
+                            <div class="stat-info">
+                                <h3>最新消息</h3>
+                                <p class="stat-number">156</p>
+                                <span class="stat-change positive">+12 本週</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-info">
+                                <h3>活動數量</h3>
+                                <p class="stat-number">8</p>
+                                <span class="stat-change neutral">0 變化</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <h3>註冊用戶</h3>
+                                <p class="stat-number">1,234</p>
+                                <span class="stat-change positive">+45 本月</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3>最近活動</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">📝</div>
+                                    <div class="activity-content">
+                                        <p>更新了「關於我們」頁面內容</p>
+                                        <span class="activity-time">2小時前</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">📸</div>
+                                    <div class="activity-content">
+                                        <p>上傳了5張新圖片</p>
+                                        <span class="activity-time">4小時前</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">📰</div>
+                                    <div class="activity-content">
+                                        <p>發布了新的健康資訊文章</p>
+                                        <span class="activity-time">1天前</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>快速操作</h3>
+                            <div class="quick-actions">
+                                <button class="action-btn" data-action="new-page">
+                                    <span class="action-icon">➕</span>
+                                    新增頁面
+                                </button>
+                                <button class="action-btn" data-action="new-news">
+                                    <span class="action-icon">📰</span>
+                                    發布消息
+                                </button>
+                                <button class="action-btn" data-action="new-event">
+                                    <span class="action-icon">📅</span>
+                                    新增活動
+                                </button>
+                                <button class="action-btn" data-action="upload-media">
+                                    <span class="action-icon">📸</span>
+                                    上傳媒體
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 內容管理 -->
+                <section id="content" class="content-section">
+                    <div class="section-header">
+                        <h2>內容管理</h2>
+                        <button class="btn btn-primary" id="add-content-btn">新增內容</button>
+                    </div>
+
+                    <div class="content-tabs">
+                        <button class="tab-btn active" data-tab="pages">頁面內容</button>
+                        <button class="tab-btn" data-tab="news">最新消息</button>
+                        <button class="tab-btn" data-tab="events">活動內容</button>
+                        <button class="tab-btn" data-tab="health">健康資訊</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="pages-tab" class="tab-panel active">
+                            <div class="content-list">
+                                <div class="content-item">
+                                    <div class="content-info">
+                                        <h4>關於我們</h4>
+                                        <p>最後更新：2024年1月15日</p>
+                                    </div>
+                                    <div class="content-actions">
+                                        <button class="btn btn-sm btn-secondary">編輯</button>
+                                        <button class="btn btn-sm btn-outline">預覽</button>
+                                    </div>
+                                </div>
+                                <div class="content-item">
+                                    <div class="content-info">
+                                        <h4>服務內容</h4>
+                                        <p>最後更新：2024年1月10日</p>
+                                    </div>
+                                    <div class="content-actions">
+                                        <button class="btn btn-sm btn-secondary">編輯</button>
+                                        <button class="btn btn-sm btn-outline">預覽</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 頁面管理 -->
+                <section id="pages" class="content-section">
+                    <div class="section-header">
+                        <h2>頁面管理</h2>
+                        <button class="btn btn-primary" id="add-page-btn">新增頁面</button>
+                    </div>
+
+                    <div class="pages-grid">
+                        <div class="page-card">
+                            <div class="page-status active">已發布</div>
+                            <h3>首頁</h3>
+                            <p>網站主頁面</p>
+                            <div class="page-meta">
+                                <span>瀏覽量：1,234</span>
+                                <span>最後更新：2024年1月15日</span>
+                            </div>
+                            <div class="page-actions">
+                                <button class="btn btn-sm btn-secondary">編輯</button>
+                                <button class="btn btn-sm btn-outline">設定</button>
+                            </div>
+                        </div>
+
+                        <div class="page-card">
+                            <div class="page-status draft">草稿</div>
+                            <h3>新服務介紹</h3>
+                            <p>即將推出的新服務頁面</p>
+                            <div class="page-meta">
+                                <span>瀏覽量：0</span>
+                                <span>最後更新：2024年1月14日</span>
+                            </div>
+                            <div class="page-actions">
+                                <button class="btn btn-sm btn-secondary">編輯</button>
+                                <button class="btn btn-sm btn-primary">發布</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 媒體管理 -->
+                <section id="media" class="content-section">
+                    <div class="section-header">
+                        <h2>媒體管理</h2>
+                        <button class="btn btn-primary" id="upload-media-btn">上傳媒體</button>
+                    </div>
+
+                    <div class="media-filters">
+                        <select class="filter-select">
+                            <option value="all">所有類型</option>
+                            <option value="image">圖片</option>
+                            <option value="video">影片</option>
+                            <option value="document">文件</option>
+                        </select>
+                        <input type="text" placeholder="搜尋媒體..." class="search-input">
+                    </div>
+
+                    <div class="media-grid">
+                        <div class="media-item">
+                            <div class="media-preview">
+                                <img src="../images/placeholder.jpg" alt="媒體預覽">
+                            </div>
+                            <div class="media-info">
+                                <h4>logo.png</h4>
+                                <p>圖片 • 2.3 MB</p>
+                                <span>2024年1月15日上傳</span>
+                            </div>
+                            <div class="media-actions">
+                                <button class="btn btn-sm btn-outline">複製連結</button>
+                                <button class="btn btn-sm btn-danger">刪除</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 用戶管理 -->
+                <section id="users" class="content-section">
+                    <div class="section-header">
+                        <h2>用戶管理</h2>
+                        <button class="btn btn-primary" id="add-user-btn">新增用戶</button>
+                    </div>
+
+                    <div class="users-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>用戶名</th>
+                                    <th>電子郵件</th>
+                                    <th>角色</th>
+                                    <th>狀態</th>
+                                    <th>最後登入</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>admin</td>
+                                    <td>admin@wtsdhc.org.hk</td>
+                                    <td>超級管理員</td>
+                                    <td><span class="status active">活躍</span></td>
+                                    <td>2024年1月15日 14:30</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">編輯</button>
+                                        <button class="btn btn-sm btn-danger">停用</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 系統設定 -->
+                <section id="settings" class="content-section">
+                    <div class="section-header">
+                        <h2>系統設定</h2>
+                    </div>
+
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>網站設定</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="site-title">網站標題</label>
+                                    <input type="text" id="site-title" value="香港復康會" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="site-description">網站描述</label>
+                                    <textarea id="site-description" rows="3">專業復康服務機構</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">聯絡電郵</label>
+                                    <input type="email" id="contact-email" value="info@wtsdhc.org.hk" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">保存設定</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>語言設定</h3>
+                            <div class="language-settings">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked> 繁體中文
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked> 簡體中文
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked> English
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- 模態對話框 -->
+    <div id="modal" class="modal" hidden>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">新增內容</h3>
+                <button class="modal-close" aria-label="關閉">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="content-form">
+                    <div class="form-group">
+                        <label for="content-title">標題</label>
+                        <input type="text" id="content-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content-type">類型</label>
+                        <select id="content-type" required>
+                            <option value="">選擇類型</option>
+                            <option value="page">頁面</option>
+                            <option value="news">最新消息</option>
+                            <option value="event">活動</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="content-body">內容</label>
+                        <textarea id="content-body" rows="10" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="modal-cancel">取消</button>
+                <button type="submit" class="btn btn-primary" form="content-form">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html> 
